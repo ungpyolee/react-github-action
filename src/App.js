@@ -1,18 +1,15 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import Cart from './features/cart/Cart';
+import React, { useState } from 'react';
 
-const App = () => {
+function App() {
+    const [count, setCount] = useState(0);
+
     return (
         <div>
-            <Header />
-            <Routes>
-                <Route path="/" element={<div>Home Page</div>} />
-                <Route path="/cart" element={<Cart />} />
-            </Routes>
+            <h1>카운트: {count}</h1>
+            <button onClick={() => setCount(count + 1)}>증가</button>
+            <button onClick={() => setCount(count - 1)}>감소</button>
         </div>
     );
-};
+}
 
 export default App;
